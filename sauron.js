@@ -1,16 +1,16 @@
 module.exports = {
-  extends: ["@passport-next/eslint-config-passport-next"],
+  extends: ["./"],
   settings: {
     jsdoc: {
       forceRequireReturn: true,
       preferredTypes: {
         "*": {
           message: "Use a more precise type or if necessary use `{{preferredType}}` or `ArbitraryCallbackResult`",
-          replacement: "Any"
+          replacement: "any"
         },
-        any: {
+        Any: {
           message: "Use a more precise type or if necessary use `{{preferredType}}` or `ArbitraryCallbackResult`",
-          replacement: "Any"
+          replacement: "any"
         },
         Function: {
           message: "Point to a `@callback` namepath or `{{replacement}}` if truly arbitrary in form",
@@ -23,11 +23,11 @@ module.exports = {
           message: "Prefer type form without dot",
           replacement: "<>"
         },
-        "object<>": {
+        object: {
           message: "Use the specific object type or `{{replacement}}` if truly arbitrary",
           replacement: "PlainObject"
         },
-        "Array<>": {
+        Array: {
           message: "Use `GenericArray` if it is truly arbitrary.",
           replacement: "GenericArray"
         }
@@ -46,6 +46,7 @@ module.exports = {
     "no-console": ["warn"],
     "no-empty-function": ["warn"],
     "no-shadow": ["warn", {"builtinGlobals": true, "hoist": "functions", "allow": ["parent", "top", "open", "close", "stop", "blur", "status", "name", "closed", "start"]}],
+    "prefer-named-capture-group": ["warn"],
     "prefer-numeric-literals": ["warn"],
     "require-unicode-regexp": ["warn"],
     "vars-on-top": ["warn"],
@@ -64,6 +65,6 @@ module.exports = {
     "promise/valid-params": "warn",
     "promise/prefer-await-to-callbacks": "warn",
 
-    "unicorn/no-fn-reference-in-iterator": "warn",
+    "unicorn/no-fn-reference-in-iterator": "warn"
   }
 };
