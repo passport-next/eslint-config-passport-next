@@ -18,7 +18,10 @@ const isInherited = type === 'inherited';
 
 const left = {
   rules: {
-    ...cc.getLiteralConfigSync('explicitly-unused.js').rules,
+    ...(isInherited && rightModule !== 'eslint/conf/eslint-all'
+      ? null
+      : cc.getLiteralConfigSync('explicitly-unused.js').rules
+    ),
     ...cc.getLiteralConfigSync('index.js').rules,
     ...cc.getLiteralConfigSync('node.js').rules,
     ...cc.getLiteralConfigSync('sauron.js').rules,
@@ -54,7 +57,7 @@ const left = {
       }
       : null),
     ...(rightModule === 'eslint/conf/eslint-recommended' ||
-      rightModule === 'eslint/conf/eslint-all'
+      (!isInherited && rightModule === 'eslint/conf/eslint-all')
       ? {
         /*
         // Todo: This has no effect due to need to process `extends` as below;
@@ -68,9 +71,12 @@ const left = {
           join('./node_modules/', 'eslint-config-standard')
         ).rules
       }
-      : rightModule === 'eslint-config-standard' ? {} : cc.getLiteralConfigSync(
-        'node_modules/eslint/conf/eslint-recommended.js'
-      ).rules),
+      : (rightModule === 'eslint-config-standard'
+        ? {}
+        : cc.getLiteralConfigSync(
+          'node_modules/eslint/conf/eslint-recommended.js'
+        ).rules)
+    ),
     ...(!isInherited && config2
       ? cc.getLiteralConfigSync(
         join(__dirname, 'implicitly-included', getModulePath(
@@ -90,6 +96,7 @@ const left = {
     )
   }
 };
+
 const right = cc.getLiteralConfigSync(join('./node_modules/', rightModule));
 
 function getExtensions (config) {
