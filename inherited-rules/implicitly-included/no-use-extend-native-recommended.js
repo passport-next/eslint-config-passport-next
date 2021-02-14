@@ -1,6 +1,6 @@
 "use strict";
 module.exports = {
   rules: {
-    "compat/compat": "error"
+    "no-use-extend-native/no-use-extend-native": 2
   }
 };

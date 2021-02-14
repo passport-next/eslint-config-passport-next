@@ -1,3 +1,4 @@
+"use strict";
 module.exports = {
   rules: {
     "accessor-pairs": "error",
@@ -15,7 +16,6 @@ module.exports = {
     "eqeqeq": "error",
     "func-call-spacing": "error",
     "generator-star-spacing": "error",
-    "handle-callback-err": "error",
     "key-spacing": "error",
     "keyword-spacing": "error",
     "new-cap": "error",
@@ -49,7 +49,7 @@ module.exports = {
     "no-func-assign": "error",
     "no-global-assign": "error",
     "no-implied-eval": "error",
-    "no-inner-declarations": "error",
+    "no-import-assign": "error",
     "no-invalid-regexp": "error",
     "no-irregular-whitespace": "error",
     "no-iterator": "error",
@@ -63,22 +63,18 @@ module.exports = {
     "no-multi-spaces": "error",
     "no-multi-str": "error",
     "no-multiple-empty-lines": "error",
-    "no-negated-in-lhs": "error",
     "no-new": "error",
     "no-new-func": "error",
     "no-new-object": "error",
-    "no-new-require": "error",
     "no-new-symbol": "error",
     "no-new-wrappers": "error",
     "no-obj-calls": "error",
     "no-octal": "error",
     "no-octal-escape": "error",
-    "no-path-concat": "error",
     "no-proto": "error",
     "no-redeclare": "error",
     "no-regex-spaces": "error",
     "no-return-assign": "error",
-    "no-return-await": "error",
     "no-self-assign": "error",
     "no-self-compare": "error",
     "no-sequences": "error",
@@ -111,7 +107,6 @@ module.exports = {
     "operator-linebreak": "error",
     "padded-blocks": "error",
     "prefer-promise-reject-errors": "error",
-    "quotes": "error",
     "rest-spread-spacing": "error",
     "semi-spacing": "error",
     "space-before-blocks": "error",
@@ -134,8 +129,9 @@ module.exports = {
     "import/no-duplicates": "error",
     "import/no-named-default": "error",
     "import/no-webpack-loader-syntax": "error",
+    "node/no-callback-literal": "error",
     "node/no-deprecated-api": "error",
-    "node/process-exit-as-throw": "error",
-    "standard/no-callback-literal": "error"
+    "node/no-exports-assign": "error",
+    "node/process-exit-as-throw": "error"
   }
 };

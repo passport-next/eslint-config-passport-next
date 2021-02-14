@@ -1,45 +1,32 @@
+'use strict';
 module.exports = {
-    env: {
-        browser: true,
-        commonjs: true,
-        es6: true,
-        node: true
+  extends: [
+    './sauron-node-script-overrides.js'
+  ],
+  settings: {
+    polyfills: [
+      'Object.entries',
+      'Object.values'
+    ]
+  },
+  overrides: [{
+    files: 'build.js',
+    globals: {
+      // Todo: Get rid of this usage (and esm) with native Node only
+      __dirname: true
     },
-    extends: ['eslint:recommended'],
-    plugins: ['jsdoc', 'markdown'],
-    parserOptions: {
-        ecmaVersion: 2018,
-        sourceType: 'module'
-    },
-    overrides: [{
-      files: ['**/*.md'],
-      rules: {
-        'eol-last': ['off'],
-        'no-console': ['off'],
-        'no-undef': ['off'],
-        'no-unused-vars': ['warn'],
-        'padded-blocks': ['off'],
-        'import/unambiguous': ['off'],
-        'import/no-unresolved': ['off'],
-        'node/no-missing-import': ['off']
-      }
-    }],
+    extends: [
+      './sauron-node-overrides.js'
+    ]
+  }, {
+    files: ['inherited-rules/**'],
     rules: {
-        indent: [
-            'error',
-            2
-        ],
-        'linebreak-style': [
-            'error',
-            'unix'
-        ],
-        quotes: [
-            'error',
-            'double'
-        ],
-        semi: [
-            'error',
-            'always'
-        ]
+      // Uses JSON.stringify
+      quotes: ['error', 'double'],
+      'quote-props': 'off'
     }
+  }],
+  rules: {
+    'max-len': 'off'
+  }
 };

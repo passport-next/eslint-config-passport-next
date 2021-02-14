@@ -1,3 +1,4 @@
+"use strict";
 module.exports = {
   rules: {
     "accessor-pairs": "error",
@@ -14,7 +15,6 @@ module.exports = {
     "eqeqeq": "error",
     "func-call-spacing": "error",
     "generator-star-spacing": "error",
-    "handle-callback-err": "error",
     "key-spacing": "error",
     "keyword-spacing": "error",
     "new-cap": "error",
@@ -37,13 +37,10 @@ module.exports = {
     "no-new": "error",
     "no-new-func": "error",
     "no-new-object": "error",
-    "no-new-require": "error",
     "no-new-wrappers": "error",
     "no-octal-escape": "error",
-    "no-path-concat": "error",
     "no-proto": "error",
     "no-return-assign": "error",
-    "no-return-await": "error",
     "no-self-compare": "error",
     "no-sequences": "error",
     "no-tabs": "error",
@@ -64,7 +61,6 @@ module.exports = {
     "operator-linebreak": "error",
     "padded-blocks": "error",
     "prefer-promise-reject-errors": "error",
-    "quotes": "error",
     "rest-spread-spacing": "error",
     "semi-spacing": "error",
     "space-before-blocks": "error",
